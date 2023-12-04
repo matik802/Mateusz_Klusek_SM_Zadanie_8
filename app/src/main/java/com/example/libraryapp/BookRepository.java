@@ -22,6 +22,7 @@ public class BookRepository {
     Book findById(int id) {
         return bookDao.findBookWithId(id);
     }
+    List<Book> findBookWithTitle(String title) { return bookDao.findBookWithTitle(title); }
 
     void insert(Book book) {
         BookDatabase.databaseWriteExecutor.execute(() -> {bookDao.insert(book);

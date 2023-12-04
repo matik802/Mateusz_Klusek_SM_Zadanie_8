@@ -1,12 +1,15 @@
 package com.example.libraryapp;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.util.Log;
@@ -97,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
 //                    data.getStringExtra(EditBookActivity.EXTRA_EDIT_BOOK_AUTHOR)
 //            );
             Book book = bookViewModel.findById(data.getIntExtra(EditBookActivity.EXTRA_EDIT_BOOK_ID,0));
+//            Book book = bookViewModel.findBookWithTitle(data.getStringExtra(EditBookActivity.EXTRA_EDIT_BOOK_TITLE)).get(0);
             bookViewModel.update(book);
             Snackbar.make(findViewById(R.id.coordinator_layout),
                             getString(R.string.book_edited),

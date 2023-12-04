@@ -24,6 +24,7 @@ public class BookViewModel extends AndroidViewModel {
     Book findById(int id) {
         return bookRepository.findById(id);
     }
+    List<Book> findBookWithTitle(String title) { return bookRepository.findBookWithTitle(title); }
 
     public void insert(Book book) {
         bookRepository.insert(book);
