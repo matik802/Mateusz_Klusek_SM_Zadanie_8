@@ -95,12 +95,14 @@ public class MainActivity extends AppCompatActivity {
                     Snackbar.LENGTH_LONG).show();
         }
         else if (resultCode == RESULT_OK && requestCode == EDIT_BOOK_ACTIVITY_REQUEST_CODE) {
-//            Book book = new Book(
-//                    data.getStringExtra(EditBookActivity.EXTRA_EDIT_BOOK_TITLE),
-//                    data.getStringExtra(EditBookActivity.EXTRA_EDIT_BOOK_AUTHOR)
-//            );
-            Book book = bookViewModel.findById(data.getIntExtra(EditBookActivity.EXTRA_EDIT_BOOK_ID,0));
+            Book book = new Book(
+                    data.getStringExtra(EditBookActivity.EXTRA_EDIT_BOOK_TITLE),
+                    data.getStringExtra(EditBookActivity.EXTRA_EDIT_BOOK_AUTHOR)
+            );
+            book.setId(data.getIntExtra(EditBookActivity.EXTRA_EDIT_BOOK_ID,0));
+           // Book book = bookViewModel.findById(data.getIntExtra(EditBookActivity.EXTRA_EDIT_BOOK_ID,0));
 //            Book book = bookViewModel.findBookWithTitle(data.getStringExtra(EditBookActivity.EXTRA_EDIT_BOOK_TITLE)).get(0);
+            //Log.e("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",String.valueOf(book.getId()));
             bookViewModel.update(book);
             Snackbar.make(findViewById(R.id.coordinator_layout),
                             getString(R.string.book_edited),
