@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode == RESULT_OK || requestCode == NEW_BOOK_ACTIVITY_REQUEST_CODE) {
+        if (resultCode == RESULT_OK && requestCode == NEW_BOOK_ACTIVITY_REQUEST_CODE) {
             Book book = new Book(data.getStringExtra(EditBookActivity.EXTRA_EDIT_BOOK_TITLE),
                     data.getStringExtra(EditBookActivity.EXTRA_EDIT_BOOK_AUTHOR));
             bookViewModel.insert(book);
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                     getString(R.string.book_added),
                     Snackbar.LENGTH_LONG).show();
         }
-        else if (resultCode == RESULT_OK || requestCode == EDIT_BOOK_ACTIVITY_REQUEST_CODE) {
+        else if (resultCode == RESULT_OK && requestCode == EDIT_BOOK_ACTIVITY_REQUEST_CODE) {
 //            Book book = new Book(
 //                    data.getStringExtra(EditBookActivity.EXTRA_EDIT_BOOK_TITLE),
 //                    data.getStringExtra(EditBookActivity.EXTRA_EDIT_BOOK_AUTHOR)
